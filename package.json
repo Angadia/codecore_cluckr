@@ -2,8 +2,9 @@
   "name": "cluckr",
   "version": "1.0.0",
   "description": "CodeCore Quiz 1 Cluckr, a simple twitter clone with Express.",
-  "main": "Cluckr.js",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +14,18 @@
     "express"
   ],
   "author": "Jignesh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "knex": "^0.19.5",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
   }
 }
