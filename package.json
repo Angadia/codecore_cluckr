@@ -1,0 +1,18 @@
+{
+  "name": "cluckr",
+  "version": "1.0.0",
+  "description": "CodeCore Quiz 1 Cluckr, a simple twitter clone with Express.",
+  "main": "Cluckr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cluckr",
+    "twitter",
+    "clone",
+    "express"
+  ],
+  "author": "Jignesh",
+  "license": "MIT"
+  }
+}
