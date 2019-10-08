@@ -5,16 +5,25 @@
     <nav class="nav">
       <ul class="menu">
         <li><button class="btn_header_cluck">Cluck!</button></li>
-        <li><label class="lbl_header_username">LoggedInUsername</label></li>
-        <li><button class="btn_header_signin">Sign In</button></li>
-          <form action="/sign_in" method="GET">
-            <input type="submit" value="Sign In">
-          </form>
-        <li>
-          <form action="/sign_out" method="POST">
-            <input type="submit" value="Sign Out">
-          </form>
-      </li>
+        
+        <% if (loggedInUsername) { %>
+
+          <li><label class="lbl_header_username"><%= loggedInUsername %></label></li>
+          <li>
+            <form action="/sign_out" method="POST">
+              <input type="submit" value="Sign Out">
+            </form>
+          </li>
+          
+        <% } else { %>
+ 
+          <li>
+            <form action="/sign_in" method="GET">
+              <input type="submit" value="Sign In">
+            </form>
+          </li>
+        <% } %>
+        
       </ul>
     </nav>
 </header>

@@ -16,11 +16,12 @@ router.post("/sign_out", (req, res) => {
 });
 
 router.get("/sign_in", (req, res) => {
-  res.render("index");
+  res.redirect("/");
 });
 
 router.get("/", (req, res) => {
-  res.render("index");
+  const userCookie = req.cookies;
+    res.render("index", {"loggedInUsername":userCookie.username});
 });
 
 module.exports = router;
