@@ -10,6 +10,15 @@ router.post("/sign_in", (req, res) => {
   res.redirect("/");
 });
 
+router.post("/sign_out", (req, res) => {
+  res.clearCookie("username");
+  res.redirect("/");
+});
+
+router.get("/sign_in", (req, res) => {
+  res.render("index");
+});
+
 router.get("/", (req, res) => {
   res.render("index");
 });
