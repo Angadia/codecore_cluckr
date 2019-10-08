@@ -3,6 +3,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 const path = require("path");
+const clucksRouter = require("./routes/clucks");
 const rootRouter = require("./routes/root");
 
 const app = express();
@@ -36,6 +37,7 @@ app.use(methodOverride((req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 // The above line connects our 'public' directory to express
 
+app.use("/clucks", clucksRouter);
 app.use("/", rootRouter);
 
 // tells express to spinup a http server and listen at localhost:3000

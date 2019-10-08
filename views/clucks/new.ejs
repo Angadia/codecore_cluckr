@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../../styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cluckr</title>
+</head>
+
+<%- include("../partials/header") %>
+<!-- by default froms will make a GET request to the current url -->
+<!-- we need to add the action attribute and set it to the correct restful route -->
+<!-- and specify which verb to use -->
+<div class="cluck_form">
+<form action="/clucks" method="POST">
+  <ul>
+    <li><label for="title">Content</label></li>
+    <div class="cluck_form_inputs_submit">
+      <div class="cluck_form_content">
+        <li>
+          <textarea 
+            name="content" 
+            placeholder="Whatchoo cluckin' 'bout?"
+            class="cluck_form_content_text">
+          </textarea>
+        </li>
+      </div>
+      <li><label for="image_url">Image Url</label></li>
+      <div class="cluck_form_image_url">
+        <li>
+          <input type="text" name="image_url" placeholder="https://i.imgur.com/qM6KaEy.gifv"
+            class="cluck_form_image_url_text">
+        </li>
+      </div>
+      <div>
+        <li>
+          <input type="submit" value="Cluck!"
+            class="cluck_form_cluck_btn">
+        </li>
+      </div>
+    </div>
+  </ul>
+</form>
+</div>
+</body>
+
+</html>

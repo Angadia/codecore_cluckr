@@ -11,22 +11,23 @@
 <body>
   <%- include("partials/header") %>
 
-  <div class="sign_in_form">
-    <form action="/sign_in" method="POST">
-      <ul class="sign_in_form_items">
-        <li><label>Username</label></li>
-        <div class="sign_in_form_input_submit">
-          <div class="sign_in_form_input">
-            <li><input type="text" name="username" placeholder="e.g. Madam Welminster" class="sign_in_form_input_text"></li>
-          </div>
-          <div class="sign_in_form_submit">
-            <li><input type="submit" value="Sign In" class="sign_in_form_submit_btn"></li>
-        </div>
-        </div>
-      </ul>
-    </form>
-  </div>
-
+  <% if (cluckrData["clucks"]) {
+      cluckrData["clucks"].forEach(cluck => { %>
+  <img src="/assets/cluck_image.jpg" alt="Cluck image" class="image">
+  <ul>
+    <li>
+      <h3><%= cluck.username %> - <%= new Date(cluck.created_at).toDateString() %>
+        <%= new Date(cluck.created_at).toTimeString() %></h3>
+    </li>
+    <li>
+      <%= cluck.content %>
+    </li>
+    <li>
+      <%= cluck.image_url %>
+    </li>
+  </ul>
+  <% });
+    } %>
 </body>
 
 </html>

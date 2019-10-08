@@ -1,14 +1,17 @@
 <header class="header">
     <div class="branding">
-      <img src="assets/cluckr_logo.jpg" alt="Cluckr Logo" class="logo">
+      <a href="/"><img src="/assets/cluckr_logo.jpg" alt="Cluckr Logo" class="logo"></a>
     </div>
     <nav class="nav">
       <ul class="menu">
-        <li><button class="btn_header_cluck">Cluck!</button></li>
-        
-        <% if (loggedInUsername) { %>
+        <li>
+            <form action="/clucks/new" method="GET">
+              <input type="submit" value="Cluck!">
+            </form>
+        </li>
+        <% if (cluckrData["loggedInUsername"]) { %>
 
-          <li><label class="lbl_header_username"><%= loggedInUsername %></label></li>
+          <li><label class="lbl_header_username"><%= cluckrData["loggedInUsername"] %></label></li>
           <li>
             <form action="/sign_out" method="POST">
               <input type="submit" value="Sign Out">
