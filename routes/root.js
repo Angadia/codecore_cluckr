@@ -1,4 +1,3 @@
-// add the request handlers for "sign_in" and "/"
 const express = require("express");
 const knex = require("../db/client");
 
@@ -7,19 +6,31 @@ const ONE_WEEK = 1000 * 60 * 60 * 24 * 7;
 
 router.post("/sign_in", (req, res) => {
   const username = req.body.username;
-  res.cookie("username", username, { maxAge: ONE_WEEK });
-  res.redirect("/");
+  if (!username && !req.cookies.username) {
+    res.redirect("/sign_in");
+  }
+  else {
+    if (!username) {
+      username = req.cookies.username;
+    };
+    res.cookie("username", username, { maxAge: ONE_WEEK });
+    res.redirect("/");
+  };
 });
 
-router.post("/sign_out", (req, res) => {
+router.get("/sign_out", (req, res) => {
   res.clearCookie("username");
   res.redirect("/");
 });
 
 router.get("/sign_in", (req, res) => {
-  const cluckrData = {};
-  cluckrData["loggedInUsername"] = req.cookies.username;
-  res.render("login", {cluckrData});
+  if (!req.cookies.username) {
+    const cluckrData ={};
+    cluckrData["loggedInUsername"] = "";
+    res.render("login", {cluckrData});
+  } else {
+    res.redirect("/");
+  };
 });
 
 router.get("/clucks", (req, res) => {
@@ -34,7 +45,13 @@ router.get("/", (req, res) => {
     .then(clucks => {
       const cluckrData = {};
       cluckrData["clucks"] = clucks;
+      if (!cluckrData["clucks"]) {
+        cluckrData["clucks"] = [];
+      };
       cluckrData["loggedInUsername"] = req.cookies.username;
+      if (!cluckrData["loggedInUsername"]) {
+        cluckrData["loggedInUsername"] = "";
+      };
       res.render("index", {cluckrData});
     });
 });

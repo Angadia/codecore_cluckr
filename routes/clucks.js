@@ -1,8 +1,6 @@
-// this file will hold all the routes for our clucks resource
 const express = require("express");
 const knex = require("../db/client");
 
-// router is an object which is sort of like app
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -26,16 +24,20 @@ router.post("/", (req, res) => {
     const image_url = req.body.image_url;
     const username = req.cookies.username;
   
-    knex("clucks")
-      .insert({
-        username: username,
-        content: content,
-        image_url: image_url,
-      })
-      .returning("*")
-      .then(data => {
-        res.redirect("../");
-      });
+    if (content.length > 0 || image_url.length > 0) {
+      knex("clucks")
+        .insert({
+          username: username,
+          content: content,
+          image_url: image_url,
+        })
+        .returning("*")
+        .then(data => {
+          res.redirect("../");
+        });
+    } else {
+      res.redirect("clucks/new");
+    };
 });
 
 module.exports = router;

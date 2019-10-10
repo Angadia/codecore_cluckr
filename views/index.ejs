@@ -9,25 +9,40 @@
 </head>
 
 <body>
-  <%- include("partials/header") %>
-
-  <% if (cluckrData["clucks"]) {
-      cluckrData["clucks"].forEach(cluck => { %>
-  <img src="/assets/cluck_image.jpg" alt="Cluck image" class="image">
-  <ul>
-    <li>
-      <h3><%= cluck.username %> - <%= new Date(cluck.created_at).toDateString() %>
-        <%= new Date(cluck.created_at).toTimeString() %></h3>
-    </li>
-    <li>
-      <%= cluck.content %>
-    </li>
-    <li>
-      <%= cluck.image_url %>
-    </li>
-  </ul>
-  <% });
-    } %>
+<%-include("partials/header")%>
+  <%
+  if (cluckrData["clucks"]) {
+    if (cluckrData["clucks"].length > 0) {
+    %>
+    <clucks class="clucks">
+  <%
+    }
+    cluckrData["clucks"].forEach(cluck => {
+  %>
+      <cluck class="cluck">
+        <div class="cluck_image">
+          <img src="/assets/cluck_image.jpg" alt="Cluck image" class="image">
+        </div>
+        <div class="cluck_content">
+          <h3 class="cluck_user_title">
+            <%= cluck.username %> - <%= new Date(cluck.created_at).toDateString() %>
+          </h3>
+          <%= new Date(cluck.created_at).toTimeString() %>
+          <p class="cluck_user_content">
+            <%= cluck.content %>
+          </p>
+          <img src="<%= cluck.image_url %>" alt="<%= cluck.image_url %>" class="cluck_image_url">
+        </div>
+      </cluck>
+    <%
+    });
+    if (cluckrData["clucks"].length > 0) {
+    %>
+    </clucks>
+    <%
+    }
+  }
+  %>
 </body>
 
 </html>

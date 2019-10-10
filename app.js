@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
-const methodOverride = require("method-override");
 const path = require("path");
 const clucksRouter = require("./routes/clucks");
 const rootRouter = require("./routes/root");
@@ -19,18 +18,6 @@ app.use(cookieParser());
 
 // epxress.urlencoded is used to parse the form inputs into a "body" property in our `req` object
 app.use(express.urlencoded({ extended: true }));
-
-// METHOD OVERWRIDE HACK
-// We need to use this middleware because HTML forms only support GET and POST Verbs.
-app.use(methodOverride((req, res) => {
-  // check the form for a input with name attribute of `_method`
-  // if it exists then let methodOverride set the current HTTP Verb
-  // to whatever the value of `_method` is
-  if (req.body && req.body._method) {
-    const method = req.body._method;
-    return method;
-  }
-}));
 
 // The static assets middleware will take all the files and directories
 // at specified path and serve them publicly with their own URL

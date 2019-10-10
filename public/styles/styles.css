@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches|Thasadith');
+@import url("reset.css");
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Thasadith', sans-serif;
+  font-size: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Staatliches', cursive;
+}
+
+.header {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+.branding {
+  width: 25%;
+}
+
+.logo {
+  height: 5vh;
+  width: 5vw;
+}
+
+.nav {
+  width: 75%;
+  padding: 1em;
+}
+
+nav button,
+nav label {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-inline-start: 0.5em;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.clucks {
+  display: flex;
+  flex-direction: column;
+}
+
+clucks p,
+clucks li {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.cluck {
+  margin: 1em;
+  padding: .5em;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.image {
+  height: 3vh;
+  width: 3vh;
+}
+
+.cluck_image {
+  width: 10%;
+}
+
+.cluck_content {
+  width: 90%;
+}
+.cluck_image_url {
+  border: 1px solid grey;
+}
+
+.sign_in_form {
+  padding: 1em;
+  margin : 1em;
+  border: 1px solid black;
+}
+
+.sign_in_form_input_text {
+  width: 100%;
+}
+
+.sign_in_form_submit {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+}
+
+.sign_in_form_submit_btn {
+  width: 50%;
+}
+
+.cluck_form {
+  padding: 1em;
+  margin : 1em;
+  border: 1px solid black;
+}
+
+.cluck_form_content_text {
+  width: 100%;
+}
+
+.cluck_form_image_url_text {
+  width: 100%;
+}
+
+.cluck_form_submit {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.cluck_form_cluck_btn {
+  width: 50%;
+}

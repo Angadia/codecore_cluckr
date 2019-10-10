@@ -9,26 +9,16 @@
 </head>
 
 <body>
-  <%- include("partials/header") %>
-
+<%- include("partials/header") %>
   <div class="sign_in_form">
     <form action="/sign_in" method="POST">
-      <ul class="sign_in_form_items">
-        <li><label>Username</label></li>
-        <div class="sign_in_form_input_submit">
-          <div class="sign_in_form_input">
-            <li><input type="text" name="username" placeholder="e.g. Madam Welminster" class="sign_in_form_input_text">
-            </li>
-          </div>
-          <div class="sign_in_form_submit">
-            <li><input type="submit" value="Sign In" class="sign_in_form_submit_btn"></li>
-          </div>
-        </div>
-      </ul>
+      <label>Username</label>
+      <input type="text" name="username" placeholder="e.g. Madam Welminster" class="sign_in_form_input_text">
+      <div class="sign_in_form_submit">
+        <input type="submit" value="Sign In" class="sign_in_form_submit_btn">
+      </div>
     </form>
   </div>
-
-
 </body>
 
 </html>
