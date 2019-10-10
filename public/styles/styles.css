@@ -35,8 +35,8 @@ h3 {
 }
 
 .logo {
-  height: 5vh;
-  width: 5vw;
+  width: 50%;
+  height: auto;
 }
 
 .nav {
@@ -52,14 +52,17 @@ nav label {
 }
 
 .menu {
+  padding: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .clucks {
   display: flex;
   flex-direction: column;
+  margin: 0 1em 1em 1em;
 }
 
 clucks p,
@@ -69,28 +72,30 @@ clucks li {
 }
 
 .cluck {
-  margin: 1em;
   padding: .5em;
+  margin-top: 1em;
   border: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.image {
-  height: 3vh;
-  width: 3vh;
+.cluck_image {
+  width: 7%;
 }
 
-.cluck_image {
-  width: 10%;
+.image {
+  width: 100%;
+  height: auto;
 }
 
 .cluck_content {
-  width: 90%;
+  width: 93%;
 }
+
 .cluck_image_url {
-  border: 1px solid grey;
+  width: 100%;
+  height: auto;
 }
 
 .sign_in_form {
@@ -104,7 +109,7 @@ clucks li {
 }
 
 .sign_in_form_submit {
-  margin-top: 1em;
+  padding-top: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
