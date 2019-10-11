@@ -10,6 +10,7 @@
 
 <body>
 <%-include("partials/header")%>
+  <main class="main">
   <%
   if (cluckrData["clucks"]) {
     if (cluckrData["clucks"].length > 0) {
@@ -17,8 +18,10 @@
     <clucks class="clucks">
   <%
     }
+    
     cluckrData["clucks"].forEach(cluck => {
   %>
+    <article class="article">
       <cluck class="cluck">
         <div class="cluck_image">
           <img src="/assets/cluck_image.jpg" alt="Cluck image" class="image">
@@ -34,6 +37,7 @@
           <img src="<%= cluck.image_url %>" alt="<%= cluck.image_url %>" class="cluck_image_url">
         </div>
       </cluck>
+    </article>
     <%
     });
     if (cluckrData["clucks"].length > 0) {
@@ -43,6 +47,7 @@
     }
   }
   %>
+  </main>
 </body>
 
 </html>

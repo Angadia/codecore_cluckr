@@ -24,6 +24,9 @@ h3 {
   font-family: 'Staatliches', cursive;
 }
 
+
+/*** header and navigation menu ***/
+
 .header {
   border-bottom: 1px solid black;
   display: flex;
@@ -42,27 +45,40 @@ h3 {
 .nav {
   width: 75%;
   padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 nav button,
 nav label {
   font-size: 1.2em;
   font-weight: 500;
-  margin-inline-start: 0.5em;
+  margin-left: 0.5em;
 }
 
 .menu {
-  padding: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
 
+
+/*** Clucks all around ***/
+
+.main {
+  padding: 0.5em;
+}
+
+.article {
+  padding: 0.5em;
+}
+
 .clucks {
   display: flex;
   flex-direction: column;
-  margin: 0 1em 1em 1em;
 }
 
 clucks p,
@@ -72,8 +88,6 @@ clucks li {
 }
 
 .cluck {
-  padding: .5em;
-  margin-top: 1em;
   border: 1px solid black;
   display: flex;
   flex-direction: row;
@@ -98,9 +112,11 @@ clucks li {
   height: auto;
 }
 
+
+/*** Sign in form ***/
+
 .sign_in_form {
   padding: 1em;
-  margin : 1em;
   border: 1px solid black;
 }
 
@@ -120,9 +136,11 @@ clucks li {
   width: 50%;
 }
 
+
+/*** Cluck at a time ***/
+
 .cluck_form {
   padding: 1em;
-  margin : 1em;
   border: 1px solid black;
 }
 
@@ -135,7 +153,7 @@ clucks li {
 }
 
 .cluck_form_submit {
-  margin-top: 1em;
+  padding-top: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
