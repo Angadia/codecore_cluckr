@@ -28,9 +28,8 @@
         </div>
         <div class="cluck_content">
           <h3 class="cluck_user_title">
-            <%= cluck.username %> - <%= new Date(cluck.created_at).toDateString() %>
+            <%= cluck.username %> - <%= cluck.time_ago %>
           </h3>
-          <%= new Date(cluck.created_at).toTimeString() %>
           <p class="cluck_user_content">
             <%= cluck.content %>
           </p>
