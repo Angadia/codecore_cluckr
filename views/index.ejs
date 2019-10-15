@@ -15,24 +15,29 @@
       <div class="trending_clucks">
         <h2>Trending Clucks</h2>
         <ul class="trending_hash_tags">
-          <li>#tag1 10</li>
-          <li>#tag3 9</li>
-          <li>#tag2 3</li>
+          <% if (cluckrData["trends"]) {
+            if (cluckrData["trends"].length > 0) {
+              cluckrData["trends"].forEach(trending_hash_tag_count => {
+          %>
+          <li>#<%= trending_hash_tag_count.hash_tag %> - <%= trending_hash_tag_count.count %></li>
+          <%  });
+            };
+          };
+          %>
         </ul>
       </div>
     </aside>
   <%
   if (cluckrData["clucks"]) {
     if (cluckrData["clucks"].length > 0) {
-    %>
+  %>
     <clucks class="clucks">
   <%
-    }
-    
+    }    
     cluckrData["clucks"].forEach(cluck => {
   %>
-    <article class="article">
-      <cluck class="cluck">
+    <article class="cluck">
+      <cluck class="cluck_details">
         <div class="cluck_image">
           <img src="/assets/cluck_image.jpg" alt="Cluck image" class="image">
         </div>
@@ -47,14 +52,14 @@
         </div>
       </cluck>
     </article>
-    <%
+  <%
     });
     if (cluckrData["clucks"].length > 0) {
-    %>
+  %>
     </clucks>
-    <%
-    }
-  }
+  <%
+    };
+  };
   %>
   </main>
 </body>

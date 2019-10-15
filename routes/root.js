@@ -61,7 +61,14 @@ router.get("/", (req, res) => {
       if (!cluckrData["loggedInUsername"]) {
         cluckrData["loggedInUsername"] = "";
       };
-      res.render("index", {cluckrData});
+      knex
+        .select("hash_tag", "count")
+        .from("hash_tags")
+        .orderBy("count", "DESC")
+      .then(hashTagsCounts => {
+        cluckrData["trends"] = hashTagsCounts;
+        res.render("index", {cluckrData});
+      });
     });
 });
 

@@ -33,7 +33,7 @@ html {
 .menu button,
 .menu label {
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 400;
   margin-left: 0.5em;
 }
 
@@ -75,11 +75,11 @@ html {
   flex-direction: column;
 }
 
-.article {
+.cluck {
   padding: 0.5em;
 }
 
-.cluck {
+.cluck_details {
   padding: 1em;
   border: 1px solid black;
   display: flex;
@@ -124,7 +124,12 @@ html {
 
 /*** Cluck at a time ***/
 
-.cluck_form {
+.cluck_new {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.cluck_new_form {
   padding: 1em;
   border: 1px solid black;
 }
@@ -157,7 +162,7 @@ width no bigger than 450 pixels. ***/
 
   .menu button,
   .menu label {
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 500;
     margin-left: 0.3em;
   }
