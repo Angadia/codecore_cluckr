@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <title>Cluckr</title>
+</head>
+
+<body>
+<%-include("partials/header")%>
+  <main class="main">
+    <aside class="trends">
+      <div class="trending_clucks">
+        <h2>Trending Clucks</h2>
+        <ul class="trending_hash_tags">
+          <% if (cluckrData["trends"]) {
+            if (cluckrData["trends"].length > 0) {
+              cluckrData["trends"].forEach(trending_hash_tag_count => {
+          %>
+          <li>#<%= trending_hash_tag_count.hash_tag %> - <%= trending_hash_tag_count.count %></li>
+          <%  });
+            };
+          };
+          %>
+        </ul>
+      </div>
+    </aside>
+  <%
+  if (cluckrData["clucks"]) {
+    if (cluckrData["clucks"].length > 0) {
+  %>
+    <clucks class="clucks">
+  <%
+    }    
+    cluckrData["clucks"].forEach(cluck => {
+  %>
+    <article class="cluck">
+      <cluck class="cluck_details">
+        <div class="cluck_image">
+          <img src="/assets/cluck_image.jpg" alt="Cluck image" class="image">
+        </div>
+        <div class="cluck_content">
+          <h4 class="cluck_user_title">
+            <%= cluck.username %> <%= String.fromCharCode(0x2022) %> <%= cluck.time_ago %>
+          </h4>
+          <p class="cluck_user_content">
+            <%= cluck.content %>
+          </p>
+          <img src="<%= cluck.image_url %>" alt="<%= cluck.image_url %>" class="cluck_image_url">
+        </div>
+      </cluck>
+    </article>
+  <%
+    });
+    if (cluckrData["clucks"].length > 0) {
+  %>
+    </clucks>
+  <%
+    };
+  };
+  %>
+  </main>
+</body>
+
+</html>
